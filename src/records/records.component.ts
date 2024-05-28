@@ -7,7 +7,7 @@ import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input'; 
-import { SlicerDto } from '../models/slicer-dto';
+import { RecordsDto } from '../models/records-dto';
 import { MatNativeDateModule } from '@angular/material/core';
 import { SlicerService } from '../app/services/slicer.service';
 import { CommonModule } from '@angular/common';
@@ -19,16 +19,16 @@ import { SelectionModel } from '@angular/cdk/collections';
   selector: 'app-slicer',
   standalone: true,
   imports: [MatCheckboxModule,CommonModule,ReactiveFormsModule,MatFormFieldModule,MatInputModule,MatPaginatorModule,FormsModule,MatDatepickerModule,MatSelectModule,MatNativeDateModule],
-  templateUrl: './slicer.component.html',
-  styleUrl: './slicer.component.css'
+  templateUrl: './records.component.html',
+  styleUrl: './records.component.css'
 })
-export class SlicerComponent implements OnInit {
+export class RecordsComponent implements OnInit {
   slicerForm: FormGroup;
   patients: PatientDto[] = [];
-  slicer: SlicerDto | null = null; 
+  slicer: RecordsDto | null = null; 
   selection = new SelectionModel<PatientDto>(true, []);
-  displayedColumns: string[] = ['select', 'firstName', 'lastName', 'age', 'gender', 'lungscreen', 'prostatescreen', 'mamografScreen', 'CommonScreen'];
-  slicers: SlicerDto[] = [];
+  displayedColumns: string[] = ['select', 'firstName', 'lastName', 'age', 'gender', 'prostatescreen', 'CommonScreen'];
+  slicers: RecordsDto[] = [];
   constructor(
     private formBuilder: FormBuilder,
     private patientService: PatientService,

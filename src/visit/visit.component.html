@@ -1,12 +1,12 @@
 <div style="padding-top: 100px; text-align: center;">
   <div class="form-group">
     <mat-form-field>
-      <mat-label>Patient Taj:</mat-label>
+      <mat-label>Patient TAJ number:</mat-label>
       <input matInput type="text" id="patientTaj" [(ngModel)]="Tajnumber">
     </mat-form-field>
   </div>
   <form [formGroup]="visitForm">
-    <button mat-raised-button color="blue" style="width: 100px; height: 50px; border: #4fc8c2; background-color: #4fc8c2; color: rgb(87, 87, 87);" (click)="fetchData()">Fetch Data</button>
+    <button mat-raised-button color="blue" style="width: 100px; height: 50px; border: #f5f5f5; background-color: #ec0808; color: rgb(87, 87, 87);" (click)="fetchData()">Upload Record(s)</button>
     <div *ngIf="patient" style="margin-top: 20px; display: flex; flex-wrap: wrap; justify-content: center;">
       <h3 style="width: 100%;">Patient Details</h3>
       <div style="display: flex; flex-wrap: wrap;">
@@ -38,7 +38,7 @@
       <h3 style="padding-top: 3px;"></h3>
       @for (medre of medrec2; track $index) {
         <mat-form-field>
-          <mat-label>Medrec</mat-label>
+          <mat-label>Medical Records</mat-label>
           <input matInput type="text" [value]="medre.MedicalRecords" disabled>
         </mat-form-field>
     }
@@ -46,12 +46,12 @@
   <div class="form-group" style="padding-top: 30px;">
     
     <label style="padding-right: 30px; font-size: 25px;" >
-      Add Medrec
+      Add records
       </label>
     
       <input style="width: 300px; height: 150px; margin-left: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 5px;" type="text" [(ngModel)]="record"/>
       <div style="padding-top: 30px;">
-      <button  style="width: 100px; height: 50px; border: #4fc8c2; background-color: #4fc8c2; color: rgb(87, 87, 87);" (click)="addMedrec()">Add</button>
+      <button  style="width: 100px; height: 50px; border: #ffffff; background-color: #ecad00; color: rgb(87, 87, 87);" (click)="addMedrec()">Add</button>
       </div>
   </div>
 </div>

@@ -1,4 +1,4 @@
-export interface SlicerDto {
+export interface RecordsDto {
     
     id: number
     
