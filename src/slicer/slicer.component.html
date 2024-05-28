@@ -1,0 +1,85 @@
+<div style="padding-top: 150px;">
+  <div class="text-center text-white">
+    <span style="font-size: 2.5rem; color:#4fc8c2;">Medical</span><span style="font-size: 2.5rem; color: grey;">DataMaster</span>
+    <h2 style="color: grey;">
+      By this function you can see the patients last filter visits
+    </h2>
+  </div>
+  <table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Taj</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Age</th>
+            <th scope="col">Mammograf Screen</th>
+            <th scope="col">Common Screen</th>
+            <th scope="col">Lung Screen</th>
+            <th scope="col">Prostate Screen</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (item of patients; track item; let i = $index) {
+            <tr>
+              
+                <th scope="row">{{ item.id}}</th>
+                
+                <td>
+                    {{item.firstName}}
+                </td>
+                <td>{{item.lastName}}</td>
+                <td>
+                    {{item.Taj}}
+                </td>
+                <td>
+                  {{item.Gender}}
+              </td>
+              <td>
+                {{calculateAge(item.BirthDate)}} yrs
+            </td>
+          <td [style.color]="(calculateAge(filtem(item.Taj)!) > 3 && calculateAge(item.BirthDate) > 45 && item.Gender === 'female') ? 'red' : 'initial'">
+            @if(filtem(item.Taj) != null){
+            
+              {{calculateAge(filtem(item.Taj)!)}} yr ago
+            }@else{
+              None
+            }
+        </td>
+        <td [style.color]="(calculateAge(filterc(item.Taj)!) > 5) ? 'red' : 'initial'">
+          @if(filterc(item.Taj) != null){
+            
+            {{calculateAge(filterc(item.Taj)!)}} yr ago
+          }@else{
+            None
+          }
+ 
+      </td>
+      <td [style.color]="(calculateAge(filterl(item.Taj)!) > 1 && calculateAge(item.BirthDate) > 18) ? 'red' : 'initial'">
+        @if(filterl(item.Taj) != null){
+            
+          {{calculateAge(filterl(item.Taj)!)}} yr ago
+        }@else{
+          None
+        }
+      
+      
+    </td>
+    <td [style.color]="(calculateAge(filterp(item.Taj)!) > 2 && calculateAge(item.BirthDate) > 35 && item.Gender === 'male') ? 'red' : 'initial'">
+      @if(filterp(item.Taj) != null){
+            
+        {{calculateAge(filterp(item.Taj)!)}} yr ago
+      }@else{
+        None
+      }
+  </td>
+              <td>
+                <button mat-raised-button color="primary" type="submit" style="width: 100px; height: 40px; border: #4fc8c2; background-color: #4fc8c2; color: rgb(87, 87, 87);"(click)="onSubmit()">Send Email</button>
+            </td>
+              
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

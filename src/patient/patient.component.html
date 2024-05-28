@@ -1,0 +1,36 @@
+<div style="display: flex; flex-direction: column; align-items: center; padding-top: 100px;">
+  <form [formGroup]="patientForm" (ngSubmit)="addPatient()" style="width: 350px;">
+    <mat-form-field class="full-width">
+      <input matInput placeholder="First Name" formControlName="firstName">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Last Name" formControlName="lastName">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input matInput [matDatepicker]="picker" placeholder="Birth Date" formControlName="birthDate">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input matInput type="number" placeholder="Taj Number" formControlName="tajNumber">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-select placeholder="Gender" formControlName="gender">
+        <mat-option value="male">Male</mat-option>
+        <mat-option value="female">Female</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <textarea matInput placeholder="Medical History" formControlName="medicalHistory"></textarea>
+    </mat-form-field>
+
+    <div style="display: flex; justify-content: center;">
+      <button mat-raised-button type="submit" style="width: 100px; height: 50px; border: #4fc8c2; background-color: #4fc8c2; color: rgb(87, 87, 87);">Submit</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,57 @@
+<div style="padding-top: 100px; text-align: center;">
+  <div class="form-group">
+    <mat-form-field>
+      <mat-label>Patient Taj:</mat-label>
+      <input matInput type="text" id="patientTaj" [(ngModel)]="Tajnumber">
+    </mat-form-field>
+  </div>
+  <form [formGroup]="visitForm">
+    <button mat-raised-button color="blue" style="width: 100px; height: 50px; border: #4fc8c2; background-color: #4fc8c2; color: rgb(87, 87, 87);" (click)="fetchData()">Fetch Data</button>
+    <div *ngIf="patient" style="margin-top: 20px; display: flex; flex-wrap: wrap; justify-content: center;">
+      <h3 style="width: 100%;">Patient Details</h3>
+      <div style="display: flex; flex-wrap: wrap;">
+        <mat-form-field style="margin-right: 10px;">
+          <mat-label>First Name</mat-label>
+          <input matInput type="text" [value]="patient.firstName" disabled>
+        </mat-form-field>
+        <mat-form-field style="margin-right: 10px;">
+          <mat-label>Last Name</mat-label>
+          <input matInput type="text" [value]="patient.lastName" disabled>
+        </mat-form-field>
+        <mat-form-field style="margin-right: 10px;">
+          <mat-label>TAJ</mat-label>
+          <input matInput type="text" [value]="patient.Taj" disabled>
+        </mat-form-field>
+        <mat-form-field style="margin-right: 10px;">
+          <mat-label>Gender</mat-label>
+          <input matInput type="text" [value]="patient.Gender" disabled>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Birth Date</mat-label>
+          <input matInput type="text" [value]="patient.BirthDate | date: 'yyyy-MM-dd'" disabled>
+        </mat-form-field>
+      </div>
+    </div>
+
+
+    
+      <h3 style="padding-top: 3px;"></h3>
+      @for (medre of medrec2; track $index) {
+        <mat-form-field>
+          <mat-label>Medrec</mat-label>
+          <input matInput type="text" [value]="medre.MedicalRecords" disabled>
+        </mat-form-field>
+    }
+  </form>
+  <div class="form-group" style="padding-top: 30px;">
+    
+    <label style="padding-right: 30px; font-size: 25px;" >
+      Add Medrec
+      </label>
+    
+      <input style="width: 300px; height: 150px; margin-left: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 5px;" type="text" [(ngModel)]="record"/>
+      <div style="padding-top: 30px;">
+      <button  style="width: 100px; height: 50px; border: #4fc8c2; background-color: #4fc8c2; color: rgb(87, 87, 87);" (click)="addMedrec()">Add</button>
+      </div>
+  </div>
+</div>
